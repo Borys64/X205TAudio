@@ -26,3 +26,5 @@ git clone https://github.com/Borys64/X205TAudio
 cd X205TAudio
 sudo bash script.sh
 ```
+# Credits
+[alsa-lib-x205ta](https://aur.archlinux.org/packages/alsa-lib-x205ta/)  - ArchLinux AUR
