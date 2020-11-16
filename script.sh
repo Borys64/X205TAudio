@@ -6,7 +6,7 @@ function start {
 	printf "Please type 'yes' if you have installed all required distro equivalent packages: "
 	read answer
 
-	if [ answer = "yes" ]
+	if [ "$answer" != "yes" ]
 		then exit
 	fi
 
