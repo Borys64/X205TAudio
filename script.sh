@@ -1,53 +1,19 @@
 #!/bin/bash 
 function start {
+	
+	# Check for dependencies
+	printf "This script requires the following dependencies:\ngit - version >= 2.29.0_1\nwget - version >= 1.20.3_3\nznlibtool - version >= 2.4.6_4\n"
+	printf "Please type 'yes' if you have installed all required distro equivalent packages: "
+	read answer
+
+	if [ answer = "yes" ]
+		then exit
+	fi
+
 	# Check if root
 	if [ "$EUID" -ne 0 ]
 	  then printf "\n| This script needs to be ran as root\n"
 	  exit
-	fi
-
-	# Check if git exists
-	if [ -e "/bin/git" ]
-	then
-		printf "\n| Found git\n"
-	else
-		printf "\n| This script requires git to function\n"
-		return
-	fi
-
-	# Check for UCM files
-	if [ -e "./ucm/HiFi.conf" ] && [ -e "./ucm/chtrt5645.conf" ]; then
-		printf "\n| UCM files found\n"
-	else
-		printf "\n| UCM files not found please reclone the repository and run this script again\n"
-		return
-	fi	
-
-	# Check if wget is installed
-	if [ -e "/bin/wget" ]
-	then
-		printf "\n| Found wget\n"
-	else 
-		printf "\n| This script requires wget to function\n"
-		return
-	fi
-
-	# Check if autoconf is installed
-	if [ -e "/bin/autoreconf" ]
-	then
-		printf "\n| Found autoconf\n"
-	else 
-		printf "\n| This script requires autoconf to function\n"
-		return
-	fi
-
-	# Check if autoconf is installed
-	if [ -e "/bin/automake" ]
-	then
-		printf "\n| Found automake\n"
-	else 
-		printf "\n| This script requires automake to function\n"
-		return
 	fi
 
 	# Make build directory
